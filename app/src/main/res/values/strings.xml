@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Eletric_Car</string>
+    <string name="eletric_car">Eletric Car</string>
+    <string name="carros">Carros</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="preco">Preço</string>
+    <string name="r_300_000_00">300.000,00</string>
+    <string name="bateria">Bateria</string>
+    <string name="r_300_kwh">300 kWh</string>
+    <string name="potencia">Potencia</string>
+    <string name="_300_cv">300 cv</string>
+    <string name="recarga">Recarga</string>
+    <string name="_30_min">30 min\n</string>
+    <string name="car">TODO</string>
+</resources>
