@@ -12,4 +12,7 @@
     <string name="recarga">Recarga</string>
     <string name="_30_min">30 min\n</string>
     <string name="car">TODO</string>
+    <string name="pre_o_kwh">Preço kWh</string>
+    <string name="percorrido">Km_Percorrido</string>
+    <string name="calcular">CALCULAR</string>
 </resources>
