@@ -15,4 +15,6 @@
     <string name="pre_o_kwh">Preço kWh</string>
     <string name="percorrido">Km_Percorrido</string>
     <string name="calcular">CALCULAR</string>
+    <string name="resultado_r">Resultado: R</string>
+    <string name="calcular_autonomia">Calcular Autonomia</string>
 </resources>

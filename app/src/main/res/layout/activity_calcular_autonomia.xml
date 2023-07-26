@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:text="@string/calcular_autonomia"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_preco_kwh"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_margin="16dp"
+        android:inputType="numberDecimal"
+        android:maxLength="10"
+        android:hint="@string/pre_o_kwh"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/et_percorrido_km"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_margin="16dp"
+        android:inputType="numberDecimal"
+        android:maxLength="10"
+        android:hint="@string/percorrido"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_preco_kwh"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/btn_calcula"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/calcular"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_percorrido_km"/>
+
+    <TextView
+        android:id="@+id/tv_resultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="@string/resultado_r"
+        app:layout_constraintStart_toStartOf="@id/btn_calcula"
+        app:layout_constraintTop_toBottomOf="@id/btn_calcula"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,18 +2,19 @@ package com.minhaempresa.eletric_car
 
 
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.minhaempresa.eletric_car.adapter.CalcularAutonomiaActivity
 
 
 class MainActivity : AppCompatActivity() {
-    lateinit var preco: EditText
-    lateinit var percorrido: EditText
-    lateinit var btn_Calcular: Button
-    lateinit var resultado: TextView
+
+    lateinit var btnCalcular: Button
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,25 +24,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setupView(){
-        preco = findViewById(R.id.et_preco_kwh)
-        percorrido = findViewById(R.id.et_percorrido_km)
-        btn_Calcular = findViewById(R.id.btn_calcular)
-        resultado = findViewById(R.id.tv_resultado)
+        btnCalcular = findViewById(R.id.btn_calcular)
     }
 
     fun setupListeners(){
-        btn_Calcular.setOnClickListener{
-           calcular()
+        btnCalcular.setOnClickListener{
+           startActivity(Intent(this,CalcularAutonomiaActivity::class.java))
         }
     }
 
-    fun calcular(){
-        val preco = preco.text.toString().toFloat()
-        val km = percorrido.text.toString().toFloat()
-        val result = preco / km
 
-        resultado.text = result.toString()
-    }
 }
 
 
