@@ -32,7 +32,7 @@ class CalcularAutonomiaActivity : AppCompatActivity(){
         kmPercorrido = findViewById(R.id.et_percorrido_km)
         btnCalcular = findViewById(R.id.btn_calcula)
         resultado = findViewById(R.id.tv_resultado)
-       // btnclose = findViewById(R.id.iv_close)
+        btnclose = findViewById(R.id.iv_close)
     }
 
     fun setupListeners() {
@@ -40,9 +40,9 @@ class CalcularAutonomiaActivity : AppCompatActivity(){
             calcular()
 
         }
-       // btnclose.setOnClickListener{
-           // finish()
-       // }
+        btnclose.setOnClickListener{
+            finish()
+        }
 
     }
     fun calcular() {

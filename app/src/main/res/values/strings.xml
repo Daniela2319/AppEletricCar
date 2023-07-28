@@ -17,4 +17,5 @@
     <string name="calcular">CALCULAR</string>
     <string name="resultado_r">Resultado: R</string>
     <string name="calcular_autonomia">Calcular Autonomia</string>
+    <string name="Cal_button">CALCULAR</string>
 </resources>
