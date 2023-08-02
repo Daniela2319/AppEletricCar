@@ -29,6 +29,7 @@ class CarAdapter(private val carros: List<Carro>) : RecyclerView.Adapter<CarAdap
 
 
 
+    //viewholder é vai pega cada item e colocar na tela
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
         val preco: TextView
         val bateria: TextView

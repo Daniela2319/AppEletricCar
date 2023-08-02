@@ -1,7 +1,7 @@
 package com.minhaempresa.eletric_car.data
 
 import com.minhaempresa.eletric_car.domain.Carro
-
+//
 object CarFactory {
 
     var list = listOf(
@@ -20,7 +20,16 @@ object CarFactory {
             potencia = "150cv",
             recarga = "40min",
             urlPhoto = "www.google.com.br"
-        )
+        ),
+        Carro(
+            id = 3,
+        preco = "R$ 100.000,00",
+        bateria = "200 kWh",
+        potencia = "100cv",
+        recarga = "50min",
+        urlPhoto = "www.google.com.br"
+    )
+
     )
 }
 //Verbos HTTP

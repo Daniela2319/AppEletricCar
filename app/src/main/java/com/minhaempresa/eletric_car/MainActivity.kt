@@ -9,13 +9,16 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ListView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.minhaempresa.eletric_car.adapter.CalcularAutonomiaActivity
+import com.minhaempresa.eletric_car.adapter.CarAdapter
+import com.minhaempresa.eletric_car.data.CarFactory
 
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var btnCalcular: Button
-    lateinit var lista: ListView
+    lateinit var listaCarros: RecyclerView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,14 +26,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setupView()
         setupListeners()
+        setupList()
     }
 
     fun setupView(){
         btnCalcular = findViewById(R.id.btn_calcular)
-        lista = findViewById(R.id.lv_informacoes)
+        listaCarros = findViewById(R.id.rv_lista_carro)
     }
 
-
+    fun setupList(){
+        val adapter = CarAdapter(CarFactory.list)
+        listaCarros.adapter = adapter
+    }
     fun setupListeners(){
         btnCalcular.setOnClickListener{
            startActivity(Intent(this,CalcularAutonomiaActivity::class.java))
