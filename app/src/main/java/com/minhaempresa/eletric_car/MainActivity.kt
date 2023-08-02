@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ListView
 import android.widget.TextView
 import com.minhaempresa.eletric_car.adapter.CalcularAutonomiaActivity
 
@@ -14,6 +15,7 @@ import com.minhaempresa.eletric_car.adapter.CalcularAutonomiaActivity
 class MainActivity : AppCompatActivity() {
 
     lateinit var btnCalcular: Button
+    lateinit var lista: ListView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +27,9 @@ class MainActivity : AppCompatActivity() {
 
     fun setupView(){
         btnCalcular = findViewById(R.id.btn_calcular)
+        lista = findViewById(R.id.lv_informacoes)
     }
+
 
     fun setupListeners(){
         btnCalcular.setOnClickListener{
