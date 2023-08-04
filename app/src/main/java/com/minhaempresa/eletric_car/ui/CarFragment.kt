@@ -1,4 +1,4 @@
-package com.minhaempresa.eletric_car.ui.adapter
+package com.minhaempresa.eletric_car.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
