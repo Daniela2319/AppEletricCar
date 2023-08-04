@@ -1,4 +1,4 @@
-package com.minhaempresa.eletric_car.adapter
+package com.minhaempresa.eletric_car.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,16 +7,16 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.minhaempresa.eletric_car.R
 import com.minhaempresa.eletric_car.domain.Carro
-
+//caradapter para fazer uma lista personalizada
 class CarAdapter(private val carros: List<Carro>) : RecyclerView.Adapter<CarAdapter.ViewHolder>() {
 
    //Cria uma nova view
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_carro_item, parent, false)
         return ViewHolder(view)
     }
     //Pega o contéudo da view e troca pela informação de item de uma lista
-    override fun onBindViewHolder(holder: CarAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.preco.text = carros[position].preco
         holder.bateria.text = carros[position].bateria
         holder.potencia.text = carros[position].potencia

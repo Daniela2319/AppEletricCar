@@ -1,4 +1,4 @@
-package com.minhaempresa.eletric_car
+package com.minhaempresa.eletric_car.ui
 
 
 
@@ -6,12 +6,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
-import android.widget.ListView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.minhaempresa.eletric_car.adapter.CalcularAutonomiaActivity
-import com.minhaempresa.eletric_car.adapter.CarAdapter
+import com.minhaempresa.eletric_car.R
+import com.minhaempresa.eletric_car.ui.adapter.CarAdapter
 import com.minhaempresa.eletric_car.data.CarFactory
 
 
@@ -40,7 +37,7 @@ class MainActivity : AppCompatActivity() {
     }
     fun setupListeners(){
         btnCalcular.setOnClickListener{
-           startActivity(Intent(this,CalcularAutonomiaActivity::class.java))
+           startActivity(Intent(this, CalcularAutonomiaActivity::class.java))
         }
     }
 

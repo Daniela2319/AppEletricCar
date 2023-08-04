@@ -1,6 +1,5 @@
-package com.minhaempresa.eletric_car.adapter
+package com.minhaempresa.eletric_car.ui
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
