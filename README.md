@@ -14,7 +14,8 @@ layout interativo ao usuário.
 
 <p align="center">
   
-<img src="https://github.com/Daniela2319/AppEletricCar/assets/106537496/d700531d-2ab1-445f-a563-7fed6eacdd58" height="600" width="1000">
+
+<img src="https://github.com/Daniela2319/AppEletricCar/assets/106537496/1b7b0e1f-7a31-440d-a049-863ea68bc456" height="600" width="1000">
 </p>
 
 
@@ -26,6 +27,8 @@ Esse projeto foi desenvolvindo com as seguintes tecnologias:
 * Android Studio
 * Git e Github
 
-# ViewGroup
-  Realizado neste trabalho utilizamos _ConstraintLayout_
+# Autor
+  **Prof:** _Igor da DIO_
+  
+  **Aluna:** _Daniela Velter_
   
