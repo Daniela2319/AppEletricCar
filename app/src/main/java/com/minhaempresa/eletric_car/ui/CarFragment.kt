@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.minhaempresa.eletric_car.R
 import com.minhaempresa.eletric_car.data.CarFactory
+import com.minhaempresa.eletric_car.domain.Carro
 import com.minhaempresa.eletric_car.ui.adapter.CarAdapter
 import org.json.JSONArray
 import org.json.JSONObject
@@ -31,6 +32,8 @@ class CarFragment : Fragment(){
     lateinit var fab_Calcular: FloatingActionButton
     lateinit var listaCarros: RecyclerView
 
+    var carrosArray: ArrayList<Carro> = ArrayList()
+
     //aqui o android esta desenhando a tela para o usuário
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,8 +46,8 @@ class CarFragment : Fragment(){
     //o android terminou de desenhar a tela para o usuário
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        callService()
         setupView(view)
-        setupList()
         setupListeners()
     }
 
@@ -63,14 +66,20 @@ class CarFragment : Fragment(){
 
     fun setupListeners() {
         fab_Calcular.setOnClickListener {
-            MyTask().execute("https://igorbag.github.io/cars-api/cars.json")
-           //startActivity(Intent(context, CalcularAutonomiaActivity::class.java))
+
+            startActivity(Intent(context, CalcularAutonomiaActivity::class.java))
         }
+    }
+
+    fun callService(){
+        val urlBase = "https://igorbag.github.io/cars-api/cars.json"
+            MyTask().execute(urlBase)
     }
 
     //esse código esta lendo dados
 inner class MyTask : AsyncTask<String, String, String>(){
-  fun onProExecute(){
+
+fun onProExecute(){
    super.onPreExecute()
     Log.d("MyTask","Inciando...")
 }
@@ -83,6 +92,9 @@ inner class MyTask : AsyncTask<String, String, String>(){
             urlConnection = urlBase.openConnection() as HttpURLConnection
             urlConnection.connectTimeout = 60000
             urlConnection.readTimeout = 60000
+            urlConnection.setRequestProperty(
+                "Accept","application/json"
+            )
 
             var response = urlConnection.inputStream.bufferedReader().use { it.readText() }
             publishProgress(response)
@@ -94,16 +106,44 @@ inner class MyTask : AsyncTask<String, String, String>(){
         return ""
         }
     }
- //Dados ler atributos da api
+ //Dados lendo atributos da api
  fun onProgressUpdate(vararg values: String){
      try {
          val jsonArray = JSONTokener(values[0]).nextValue()as JSONArray
          for (i in 0 until jsonArray.length()){
+            val id = jsonArray.getJSONObject(i).getString("id")
+             Log.d("ID ->", id)
 
+             val preco = jsonArray.getJSONObject(i).getString("preco")
+             Log.d("Preco ->", preco)
+
+             val bateria = jsonArray.getJSONObject(i).getString("bateria")
+             Log.d("Bateria ->", bateria)
+
+             val potencia = jsonArray.getJSONObject(i).getString("potencia")
+             Log.d("Potencia ->", potencia)
+
+             val recarga = jsonArray.getJSONObject(i).getString("recarga")
+             Log.d("Recarga ->", recarga)
+
+             val urlPhoto = jsonArray.getJSONObject(i).getString("urlPhoto")
+             Log.d("urlPhoto ->", urlPhoto)
+
+             val model = Carro(
+                 id = id.toInt(),
+                 preco = preco,
+                 bateria = bateria,
+                 potencia = potencia,
+                 recarga = recarga,
+                 urlPhoto = urlPhoto
+             )
+
+             carrosArray.add(model)
+             Log.d("Model ->", model.toString())
          }
-
+         setupList()
      }catch (ex: java.lang.Exception){
-
+            Log.e("Erro ->", ex.message.toString())
      }
 
 
