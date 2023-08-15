@@ -135,6 +135,9 @@ class CarFragment : Fragment() {
             isVisible = true
             listaCarros.adapter = carroAdapter
         }
+        carroAdapter.carItemList = {carro ->
+            val bateria = carro.bateria
+        }
     }
     fun setupListeners() {
         fab_Calcular.setOnClickListener {

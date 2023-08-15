@@ -3,12 +3,15 @@ package com.minhaempresa.eletric_car.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.minhaempresa.eletric_car.R
 import com.minhaempresa.eletric_car.domain.Carro
 //caradapter para fazer uma lista personalizada
 class CarAdapter(private val carros: List<Carro>) : RecyclerView.Adapter<CarAdapter.ViewHolder>() {
+
+    var carItemList : (Carro) -> Unit = {}
 
    //Cria uma nova view
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -21,6 +24,9 @@ class CarAdapter(private val carros: List<Carro>) : RecyclerView.Adapter<CarAdap
         holder.bateria.text = carros[position].bateria
         holder.potencia.text = carros[position].potencia
         holder.recarga.text = carros[position].recarga
+        holder.favorito.setOnClickListener{
+            carItemList(carros[position])
+        }
 
     }
 
@@ -35,6 +41,7 @@ class CarAdapter(private val carros: List<Carro>) : RecyclerView.Adapter<CarAdap
         val bateria: TextView
         val potencia: TextView
         val recarga: TextView
+        val favorito: ImageView
 
         init {
             view.apply {
@@ -42,7 +49,7 @@ class CarAdapter(private val carros: List<Carro>) : RecyclerView.Adapter<CarAdap
                 bateria = findViewById(R.id.tv_bateria_valor)
                 potencia = findViewById(R.id.tv_potencia_value)
                 recarga = findViewById(R.id.tv_recarga_valor)
-
+                favorito = findViewById(R.id.iv_favorite)
             }
 
         }
