@@ -24,16 +24,30 @@ class CarAdapter(private val carros: List<Carro>) : RecyclerView.Adapter<CarAdap
         holder.bateria.text = carros[position].bateria
         holder.potencia.text = carros[position].potencia
         holder.recarga.text = carros[position].recarga
-        holder.favorito.setOnClickListener{
-            carItemList(carros[position])
+        holder.favorito.setOnClickListener {
+            val carro = carros[position]
+            carItemList(carro)
+
+            // troca o iconi quando estiver selecionado favorito
+            setupFavorite(carro, holder)
         }
 
     }
 
+    private fun setupFavorite(
+        carro: Carro,
+        holder: ViewHolder
+    ) {
+        carro.isFavorite = !carro.isFavorite
+
+        if (carro.isFavorite)
+            holder.favorito.setImageResource(R.drawable.ic_star_selected)
+        else
+            holder.favorito.setImageResource(R.drawable.ic_star1)
+    }
+
     //Pega a quantidade de carros da lista
     override fun getItemCount(): Int = carros.size
-
-
 
     //viewholder é vai pega cada item e colocar na tela
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
