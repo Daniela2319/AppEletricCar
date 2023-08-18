@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.minhaempresa.eletric_car.data.local.CarrosContract.SQL_DELETE_ENTRIES
 import com.minhaempresa.eletric_car.data.local.CarrosContract.TABLE_CAR
-
+//classes gerencias as tabelas
 class CarsDbHelper(context: Context) :
     SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 

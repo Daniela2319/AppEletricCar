@@ -1,6 +1,7 @@
 package com.minhaempresa.eletric_car.ui
 
 import android.annotation.SuppressLint
+import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
@@ -26,6 +27,15 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.minhaempresa.eletric_car.R
 import com.minhaempresa.eletric_car.data.CarFactory
 import com.minhaempresa.eletric_car.data.CarsApi
+import com.minhaempresa.eletric_car.data.local.CarRepository
+import com.minhaempresa.eletric_car.data.local.CarrosContract
+import com.minhaempresa.eletric_car.data.local.CarrosContract.CarEntry.COLUMN_NAME_BATERIA
+import com.minhaempresa.eletric_car.data.local.CarrosContract.CarEntry.COLUMN_NAME_POTENCIA
+import com.minhaempresa.eletric_car.data.local.CarrosContract.CarEntry.COLUMN_NAME_PRECO
+import com.minhaempresa.eletric_car.data.local.CarrosContract.CarEntry.COLUMN_NAME_RECARGA
+import com.minhaempresa.eletric_car.data.local.CarrosContract.CarEntry.COLUMN_NAME_URL_PHOTO
+import com.minhaempresa.eletric_car.data.local.CarrosContract.CarEntry.TABLE_NAME
+import com.minhaempresa.eletric_car.data.local.CarsDbHelper
 import com.minhaempresa.eletric_car.domain.Carro
 import com.minhaempresa.eletric_car.ui.adapter.CarAdapter
 import org.json.JSONArray
@@ -136,7 +146,8 @@ class CarFragment : Fragment() {
             listaCarros.adapter = carroAdapter
         }
         carroAdapter.carItemList = {carro ->
-            val bateria = carro.bateria
+           // val bateria = carro.bateria
+            CarRepository(requireContext()).saveOnDatabase(carro)
         }
     }
     fun setupListeners() {
@@ -259,4 +270,5 @@ class CarFragment : Fragment() {
             }
         }
     }
+
 }
