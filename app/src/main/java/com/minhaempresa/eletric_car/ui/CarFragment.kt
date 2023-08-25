@@ -143,11 +143,11 @@ class CarFragment : Fragment() {
         val carroAdapter = CarAdapter(lista)
         listaCarros.apply {
             isVisible = true
-            listaCarros.adapter = carroAdapter
+            adapter = carroAdapter
         }
         carroAdapter.carItemList = {carro ->
            // val bateria = carro.bateria
-            CarRepository(requireContext()).saveOnDatabase(carro)
+           val isSaved = CarRepository(requireContext()).saveIfNotExist(carro)
         }
     }
     fun setupListeners() {

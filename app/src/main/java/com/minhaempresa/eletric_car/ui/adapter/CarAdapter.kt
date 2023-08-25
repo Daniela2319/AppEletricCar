@@ -9,7 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.minhaempresa.eletric_car.R
 import com.minhaempresa.eletric_car.domain.Carro
 //caradapter para fazer uma lista personalizada
-class CarAdapter(private val carros: List<Carro>) : RecyclerView.Adapter<CarAdapter.ViewHolder>() {
+class CarAdapter(private val carros: List<Carro>, private val isFavoriteScreen : Boolean = false) :
+    RecyclerView.Adapter<CarAdapter.ViewHolder>() {
 
     var carItemList : (Carro) -> Unit = {}
 
@@ -24,6 +25,11 @@ class CarAdapter(private val carros: List<Carro>) : RecyclerView.Adapter<CarAdap
         holder.bateria.text = carros[position].bateria
         holder.potencia.text = carros[position].potencia
         holder.recarga.text = carros[position].recarga
+
+        if (isFavoriteScreen){
+            holder.favorito.setImageResource(R.drawable.ic_star_selected)
+        }
+
         holder.favorito.setOnClickListener {
             val carro = carros[position]
             carItemList(carro)
