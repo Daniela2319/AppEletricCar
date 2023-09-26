@@ -31,4 +31,6 @@ Esse projeto foi desenvolvindo com as seguintes tecnologias:
   **Prof:** _Igor da DIO_
   
   **Aluna:** _Daniela Velter_
+  <br>
   
+  [![Linkedin](https://img.shields.io/badge/DANIELA-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/daniela-velter-231485f/)
